@@ -1,17 +1,17 @@
 import 'dart:convert';
 
-import 'package:bai2/model/product_model.dart';
 import 'package:flutter/material.dart';
+import '../model/Product.dart';
 import 'package:http/http.dart' as http;
 
-class ProductProvider extends ChangeNotifier{
+class ProductProvider extends ChangeNotifier {
   List<ProductModel> list = [];
-  bool showGrid = true;
-  void show(bool isGrid){
-    showGrid = isGrid;
-    notifyListeners();
-  }
-  void getList() async{
+  // bool showGrid = true;
+  // void show(bool isGrid) {
+  //   showGrid = isGrid;
+  //   notifyListeners();
+  // }
+  void getList() async {
     String apiURL = "https://fakestoreapi.com/products";
     var client = http.Client();
     var rs = await client.get(Uri.parse(apiURL));
